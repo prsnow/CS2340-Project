@@ -10,9 +10,15 @@
         android:id="@+id/button_logout"
         android:layout_width="236dp"
         android:layout_height="48dp"
+        android:onClick="onLogoutPressed"
         android:text="Logout"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="398dp" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -20,6 +26,11 @@
         android:layout_height="wrap_content"
         android:text="Main Screen"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="31dp" />
 </android.support.constraint.ConstraintLayout>
