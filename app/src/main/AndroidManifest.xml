@@ -20,12 +20,18 @@
         <activity android:name=".controller.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.RegisterActivity" />
-        <activity android:name=".controller.MainActivity"></activity>
+        <activity android:name=".controller.MainActivity" />
+        <activity android:name=".controller.RatDataListActivity" />
+        <activity
+            android:name=".controller.RatDataDetailActivity"
+            android:label="@string/title_activity_rat_data_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

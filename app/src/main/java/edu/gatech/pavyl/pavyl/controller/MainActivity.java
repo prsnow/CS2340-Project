@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.auth.SessionData;
+import edu.gatech.pavyl.pavyl.network.SessionData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,5 +40,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         //Reset session data
         SessionData.reset();
+    }
+
+    /**
+     * Called when the "View Rat Data" button is pressed.
+     * @param view - superview
+     */
+    public void onViewDataPressed(View view) {
+        Intent intent = new Intent(this, RatDataListActivity.class);
+        startActivity(intent);
     }
 }

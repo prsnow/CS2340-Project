@@ -1,4 +1,4 @@
-package edu.gatech.pavyl.pavyl.auth;
+package edu.gatech.pavyl.pavyl.network;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +11,7 @@ public class SharedData
 	
 	//CSV splitters
 	public static final String SPLITTER = "%1%";
+	public static final String SPLITTER_2 = "@2@";
 	public static final String DATA_SPLIT = ",";
 	
 	public static final Set<Character> ALLOWED_CHARS = new HashSet<Character>();

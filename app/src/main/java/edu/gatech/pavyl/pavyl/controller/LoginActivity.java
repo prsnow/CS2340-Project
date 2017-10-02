@@ -9,7 +9,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.auth.AuthHandler;
+import edu.gatech.pavyl.pavyl.network.AuthHandler;
+import edu.gatech.pavyl.pavyl.network.NetworkUtils;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String USERNAME = "user";
@@ -38,9 +39,9 @@ public class LoginActivity extends AppCompatActivity {
 
             //Start the login protocol
             AuthHandler.login(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
-                    new AuthHandler.ResponseHandler() {
+                    new NetworkUtils.ResponseHandler() {
                         @Override
-                        public void handle(AuthHandler.Response response) {
+                        public void handle(NetworkUtils.Response response) {
                             //Note that everything here is handled in the UI thread
                             if (response.accept) {
                                 //If the server approved authentication, go to main view

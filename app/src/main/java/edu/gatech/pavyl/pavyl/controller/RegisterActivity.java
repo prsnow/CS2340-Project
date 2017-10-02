@@ -10,7 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.auth.AuthHandler;
+import edu.gatech.pavyl.pavyl.network.AuthHandler;
+import edu.gatech.pavyl.pavyl.network.NetworkUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -45,9 +46,9 @@ public class RegisterActivity extends AppCompatActivity {
                 //Start registration protocol
                 AuthHandler.register(usernameEdit.getText().toString(),
                         passwordEdit.getText().toString(), extraText,
-                        new AuthHandler.ResponseHandler() {
+                        new NetworkUtils.ResponseHandler() {
                             @Override
-                            public void handle(AuthHandler.Response response) {
+                            public void handle(NetworkUtils.Response response) {
                                 //All handled in UI thread
                                 if (response.accept) {
                                     //If the server approved the new account, go to main view

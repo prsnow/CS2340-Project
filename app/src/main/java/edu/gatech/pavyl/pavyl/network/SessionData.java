@@ -1,4 +1,4 @@
-package edu.gatech.pavyl.pavyl.auth;
+package edu.gatech.pavyl.pavyl.network;
 
 import java.util.HashMap;
 import java.util.Map;
