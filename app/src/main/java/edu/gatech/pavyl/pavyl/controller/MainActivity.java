@@ -50,4 +50,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RatDataListActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Called when the "Enter Rat Sighting" button is pressed.
+     * @param view - superview
+     */
+    public void onEnterRatSightingPressed(View view) {
+        Intent intent = new Intent(this, EnterRatSightingActivity.class);
+        startActivity(intent);
+    }
+
+
 }
