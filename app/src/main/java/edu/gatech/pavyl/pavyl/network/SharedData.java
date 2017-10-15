@@ -16,6 +16,17 @@ public class SharedData
 	
 	public static final Set<Character> ALLOWED_CHARS = new HashSet<Character>();
 	public static final int MAX_USERNAME_LENGTH = 32;
+
+	/**
+	 * All the data values contained in a RatData object.
+	 */
+	public static final String[] DATA_FIELDS = new String[]
+			{"date", "location", "zip", "address", "city", "borough", "latitude", "longitude"};
+
+	/**
+	 * The database name for the data key.
+	 */
+	public static final String DATA_KEY_ID = "data_key";
 	
 	static {
 		ALLOWED_CHARS.add('-');
