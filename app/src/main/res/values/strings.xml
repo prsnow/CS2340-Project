@@ -14,4 +14,6 @@
         completions."
     </string>
     <string name="title_activity_rat_data_detail">RatDataDetailActivity</string>
+    <string name="title_activity_enter_rat_data">EnterRatDataActivity</string>
+    <string name="title_activity_enter_rat_sighting">EnterRatSightingActivity</string>
 </resources>
