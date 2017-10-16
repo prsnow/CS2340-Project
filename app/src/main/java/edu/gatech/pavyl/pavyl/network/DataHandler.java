@@ -1,5 +1,7 @@
 package edu.gatech.pavyl.pavyl.network;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import edu.gatech.pavyl.pavyl.model.RatData;
@@ -25,6 +27,45 @@ public class DataHandler {
             @Override
             public Response doInBackground(Void... params) {
                 List<String> response = sendMessages(compileMsg("GETDATA", limit, offset));
+
+                try {
+                    if (response != null) {
+                        String[] split = response.get(0).split(SharedData.SPLITTER);
+
+                        if (split[0].equals("ACCEPT")) {
+                            Response ret = new Response(true, null);
+                            ret.setData(split);
+                            return ret;
+                        } else {
+                            return new Response(false, split[1]);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return Response.ERROR;
+            }
+        }.execute();
+    }
+
+    /**
+     * Request a certain amount of rat data from the server between a provided start and end date.
+     *
+     * @param startDate         - the date to begin reading data from
+     * @param endDate           - the date to stop reading data from
+     * @param completionHandler - a completion handler, fired on UI thread
+     *                          when the response is received
+     */
+    public static void requestDataInRange(final Calendar startDate, final Calendar endDate, final ResponseHandler completionHandler) {
+        SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
+        final String start = fmt.format(startDate.getTime());
+        final String end = fmt.format(endDate.getTime());
+
+        new NetworkUtils.AsyncWrapper(completionHandler) {
+            @Override
+            public Response doInBackground(Void... params) {
+                List<String> response = sendMessages(compileMsg("GETRANGE", start, end));
 
                 try {
                     if (response != null) {
