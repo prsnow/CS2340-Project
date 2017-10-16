@@ -9,9 +9,14 @@ import android.view.View;
 
 import java.util.HashMap;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import edu.gatech.pavyl.pavyl.R;
 import edu.gatech.pavyl.pavyl.model.RatData;
+import edu.gatech.pavyl.pavyl.network.DataHandler;
+import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+
+import static edu.gatech.pavyl.pavyl.network.NetworkUtils.ResponseHandler;
 
 import android.widget.EditText;
 
@@ -34,7 +39,6 @@ public class EnterRatSightingActivity extends AppCompatActivity {
     /**
      * Called when "Add Sighting" button is pressed.
      * Adds rat sighting to database.
-     * Duplicates: ???
      *
      * @param view - superview
      */
@@ -49,11 +53,12 @@ public class EnterRatSightingActivity extends AppCompatActivity {
         String latitudeEdit = ((EditText) findViewById(R.id.latitude)).getText().toString();
         String longitudeEdit = ((EditText) findViewById(R.id.longitude)).getText().toString();
 
-        int key = makeKey();
         Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
+        String dateTime = f.format(date);
 
-        dataMap.put("data_key", "" + key);
-        dataMap.put("date", date.toString());
+        dataMap.put("data_key", "");
+        dataMap.put("date", dateTime);
         dataMap.put("location", locationEdit);
         dataMap.put("zip", zipEdit);
         dataMap.put("address", addressEdit);
@@ -63,6 +68,15 @@ public class EnterRatSightingActivity extends AppCompatActivity {
         dataMap.put("longitude", longitudeEdit);
 
         RatData sighting = new RatData(dataMap);
+
+        DataHandler.addData(sighting, new ResponseHandler() {
+            @Override
+            public void handle(NetworkUtils.Response response) {
+                if (response.accept) {
+                    finish();
+                }
+            }
+        });
 
 
     }
