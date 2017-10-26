@@ -57,10 +57,12 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread
      *                          when the response is received
      */
-    public static void requestDataInRange(final Calendar startDate, final Calendar endDate, final ResponseHandler completionHandler) {
-        SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
-        final String start = fmt.format(startDate.getTime());
-        final String end = fmt.format(endDate.getTime());
+    public static void requestDataInRange(final String startDate, final String endDate, final ResponseHandler completionHandler) {
+        //SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
+        //final String start = fmt.format(startDate.getTime());
+        //final String end = fmt.format(endDate.getTime());
+        final String start = startDate;
+        final String end = endDate;
 
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override

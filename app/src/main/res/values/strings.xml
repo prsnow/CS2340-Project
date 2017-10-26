@@ -16,4 +16,6 @@
     <string name="title_activity_rat_data_detail">RatDataDetailActivity</string>
     <string name="title_activity_enter_rat_data">EnterRatDataActivity</string>
     <string name="title_activity_enter_rat_sighting">EnterRatSightingActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_choose_map_data">ChooseMapData</string>
 </resources>
