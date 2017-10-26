@@ -53,13 +53,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyDc_PItlVQ6v2SAx3F-isPqgepyNDSzopA" />
 
         <activity
             android:name=".controller.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".controller.ChooseMapData"
+            android:name=".controller.ChooseMapDataActivity"
             android:label="@string/title_activity_choose_map_data"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

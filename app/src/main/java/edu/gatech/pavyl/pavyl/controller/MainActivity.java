@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view - superview
      */
     public void onMapPressed(View view) {
-        Intent intent = new Intent(this, ChooseMapData.class);
+        Intent intent = new Intent(this, ChooseMapDataActivity.class);
         startActivity(intent);
     }
 

@@ -11,6 +11,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Arrays;
+import java.util.Calendar;
+
 import edu.gatech.pavyl.pavyl.model.RatData;
 import edu.gatech.pavyl.pavyl.network.DataHandler;
 import edu.gatech.pavyl.pavyl.network.NetworkUtils;
@@ -46,40 +49,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-
         Bundle extras = getIntent().getExtras();
-        String start; String end;
-        start = extras.getString("START");
-        end = extras.getString("END");
-
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        start.setTimeInMillis(extras.getLong("START"));
+        end.setTimeInMillis(extras.getLong("END"));
         DataHandler.requestDataInRange(start, end, new ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
                 if (response.accept) {
                     String[] data = response.data;
+                    System.out.println(Arrays.toString(data));
                     for (int i = 1; i < data.length; i++) {
-                        if (i < data.length) {
-                            RatData ret = RatData.parse(data[i]);
+                        RatData ret = RatData.parse(data[i]);
 
-                            if (ret != null) {
+                        if (ret != null) {
+                            try {
                                 float lat = Float.parseFloat(ret.getData("latitude"));
                                 float lon = Float.parseFloat(ret.getData("longitude"));
                                 LatLng loc = new LatLng(lat, lon);
-                                mMap.addMarker(new MarkerOptions().position(loc).title(ret.toString()));
-                                mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                            }
+                                mMap.addMarker(new MarkerOptions().position(loc).title(ret.getData("data_key")));
+                            } catch(Exception e) {}
                         }
                     }
                 }
+                else {
+                    System.out.println(response.message);
+                }
             }
         });
-
-
-
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

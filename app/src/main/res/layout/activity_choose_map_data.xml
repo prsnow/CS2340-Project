@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.gatech.pavyl.pavyl.controller.ChooseMapData">
+    tools:context="edu.gatech.pavyl.pavyl.controller.ChooseMapDataActivity">
 
     <Button
         android:id="@+id/button_go_to_map"

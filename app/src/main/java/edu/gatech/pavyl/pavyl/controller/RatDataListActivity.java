@@ -56,12 +56,10 @@ public class RatDataListActivity extends AppCompatActivity {
                             String[] data = response.data;
 
                             for (int i = 1; i < data.length; i++) {
-                                if (i < data.length) {
-                                    RatData ret = RatData.parse(data[i]);
+                                RatData ret = RatData.parse(data[i]);
 
-                                    if (ret != null) {
-                                        toAdd.add(ret);
-                                    }
+                                if (ret != null) {
+                                    toAdd.add(ret);
                                 }
                             }
 

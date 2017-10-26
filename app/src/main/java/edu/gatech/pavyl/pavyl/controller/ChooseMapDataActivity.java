@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
-public class ChooseMapData extends AppCompatActivity {
+public class ChooseMapDataActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +34,24 @@ public class ChooseMapData extends AppCompatActivity {
         String startMonth = ((EditText) findViewById(R.id.start_month)).getText().toString();
         String startDay = ((EditText) findViewById(R.id.start_day)).getText().toString();
         String startYear = ((EditText) findViewById(R.id.start_year)).getText().toString();
-        String startString = startMonth + "/" + startDay + "/" + startYear;
+
+        Calendar start = Calendar.getInstance();
+        start.set(Calendar.MONTH, Integer.parseInt(startMonth)-1);
+        start.set(Calendar.DAY_OF_MONTH, Integer.parseInt(startDay));
+        start.set(Calendar.YEAR, Integer.parseInt(startYear));
 
         String endMonth = ((EditText) findViewById(R.id.end_month)).getText().toString();
         String endDay = ((EditText) findViewById(R.id.end_day)).getText().toString();
         String endYear = ((EditText) findViewById(R.id.end_year)).getText().toString();
-        String endString = endMonth + "/" + endDay + "/" + endYear;
 
-        //DateFormat f = new SimpleDateFormat("MM/dd/yy");
-
-        //Date start;
-        //Date end;
+        Calendar end = Calendar.getInstance();
+        end.set(Calendar.MONTH, Integer.parseInt(endMonth)-1);
+        end.set(Calendar.DAY_OF_MONTH, Integer.parseInt(endDay));
+        end.set(Calendar.YEAR, Integer.parseInt(endYear));
 
         Intent intent = new Intent(this, MapsActivity.class);
-        intent.putExtra("START", startString);
-        intent.putExtra("END", endString);
+        intent.putExtra("START", start.getTimeInMillis());
+        intent.putExtra("END", end.getTimeInMillis());
         startActivity(intent);
 
 
