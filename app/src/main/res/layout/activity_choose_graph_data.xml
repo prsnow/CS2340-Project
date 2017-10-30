@@ -32,13 +32,13 @@
         app:layout_constraintTop_toBottomOf="@+id/fromDateLabelGraph" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/graphDateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="54dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Choose Date Range"
+        android:text="Graph Date Range"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/fromDateLabelGraph"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="82dp"
         android:onClick="onGoToGraphPressed"
-        android:text="Go To Map"
+        android:text="Go To Graph"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/fromDateButtonGraph"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/graphDateTitle" />
 
     <TextView
         android:id="@+id/toDateLabelGraph"

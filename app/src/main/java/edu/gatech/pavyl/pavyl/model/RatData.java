@@ -1,5 +1,7 @@
 package edu.gatech.pavyl.pavyl.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import edu.gatech.pavyl.pavyl.network.SharedData;
@@ -48,6 +50,23 @@ public class RatData {
      */
     public String compile() {
         return getData(SharedData.DATA_KEY_ID) + SharedData.DATA_SPLIT + compileNoKey();
+    }
+
+    private static final SimpleDateFormat FMT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a");
+
+    /**
+     * Parses the date in this RatData's data and returns it as a Calendar object.
+     * @return this RatData's date value in Calendar form
+     */
+    public Calendar getDate() {
+        try {
+            Calendar ret = Calendar.getInstance();
+            ret.setTime(FMT.parse(getData("date")));
+            return ret;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**

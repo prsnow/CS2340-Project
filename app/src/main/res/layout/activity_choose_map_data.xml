@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fromDateLabel" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/mapDateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="54dp"
@@ -68,7 +68,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/fromDateButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/mapDateTitle" />
 
     <TextView
         android:id="@+id/toDateLabel"

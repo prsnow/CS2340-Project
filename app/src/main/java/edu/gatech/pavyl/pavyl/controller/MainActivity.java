@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view - superview
      */
     public void onGraphPressed(View view) {
-        Intent intent = new Intent(this, ChooseMapDataActivity.class);
+        Intent intent = new Intent(this, ChooseGraphDataActivity.class);
         startActivity(intent);
     }
 }

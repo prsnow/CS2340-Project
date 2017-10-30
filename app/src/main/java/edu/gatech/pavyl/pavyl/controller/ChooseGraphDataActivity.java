@@ -21,7 +21,7 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_map_data);
+        setContentView(R.layout.activity_choose_graph_data);
     }
 
     /**
