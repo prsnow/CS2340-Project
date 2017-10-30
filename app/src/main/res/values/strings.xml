@@ -18,4 +18,6 @@
     <string name="title_activity_enter_rat_sighting">EnterRatSightingActivity</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_choose_map_data">ChooseMapData</string>
+    <string name="title_activity_choose_graph_data">ChooseGraphData</string>
+    <string name="title_activity_graph">GraphActivity</string>
 </resources>

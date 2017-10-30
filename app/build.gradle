@@ -29,5 +29,6 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.android.gms:play-services-maps:10.0.0'
+    compile 'com.jjoe64:graphview:4.2.1'
     testCompile 'junit:junit:4.12'
 }

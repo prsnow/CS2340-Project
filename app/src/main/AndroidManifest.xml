@@ -61,6 +61,14 @@
         <activity
             android:name=".controller.ChooseMapDataActivity"
             android:label="@string/title_activity_choose_map_data"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.ChooseGraphDataActivity"
+            android:label="@string/title_activity_choose_graph_data"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controller.GraphActivity"
+            android:label="@string/title_activity_graph"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

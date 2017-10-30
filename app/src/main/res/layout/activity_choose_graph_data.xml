@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.gatech.pavyl.pavyl.controller.ChooseMapDataActivity"
+    tools:context="edu.gatech.pavyl.pavyl.controller.ChooseGraphDataActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <Button
-        android:id="@+id/toDateButton"
+        android:id="@+id/toDateButtonGraph"
         android:layout_width="82dp"
         android:layout_height="40dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="31dp"
         android:onClick="onEndDateSelect"
         android:text="Select"
-        app:layout_constraintEnd_toStartOf="@+id/button_go_to_map"
+        app:layout_constraintEnd_toStartOf="@+id/button_go_to_graph"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDateLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/toDateLabelGraph" />
 
     <Button
-        android:id="@+id/fromDateButton"
+        android:id="@+id/fromDateButtonGraph"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginBottom="19dp"
         android:onClick="onStartDateSelect"
         android:text="Select"
-        app:layout_constraintBottom_toTopOf="@+id/toDateLabel"
-        app:layout_constraintEnd_toEndOf="@+id/toDateButton"
-        app:layout_constraintStart_toStartOf="@+id/fromDateLabel"
-        app:layout_constraintTop_toBottomOf="@+id/fromDateLabel" />
+        app:layout_constraintBottom_toTopOf="@+id/toDateLabelGraph"
+        app:layout_constraintEnd_toEndOf="@+id/toDateButtonGraph"
+        app:layout_constraintStart_toStartOf="@+id/fromDateLabelGraph"
+        app:layout_constraintTop_toBottomOf="@+id/fromDateLabelGraph" />
 
     <TextView
         android:id="@+id/textView6"
@@ -40,45 +40,45 @@
         android:layout_marginTop="16dp"
         android:text="Choose Date Range"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/fromDateLabel"
+        app:layout_constraintBottom_toTopOf="@+id/fromDateLabelGraph"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
     <Button
-        android:id="@+id/button_go_to_map"
+        android:id="@+id/button_go_to_graph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="82dp"
-        android:onClick="onGoToMapPressed"
+        android:onClick="onGoToGraphPressed"
         android:text="Go To Map"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDateButton" />
+        app:layout_constraintTop_toBottomOf="@+id/toDateButtonGraph" />
 
     <TextView
-        android:id="@+id/fromDateLabel"
+        android:id="@+id/fromDateLabelGraph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:layout_marginStart="31dp"
         android:text="From Date: Undefined"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/fromDateButton"
+        app:layout_constraintBottom_toTopOf="@+id/fromDateButtonGraph"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/toDateLabel"
+        android:id="@+id/toDateLabelGraph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:text="To Date: Undefined"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/toDateButton"
-        app:layout_constraintStart_toStartOf="@+id/toDateButton"
-        app:layout_constraintTop_toBottomOf="@+id/fromDateButton" />
+        app:layout_constraintBottom_toTopOf="@+id/toDateButtonGraph"
+        app:layout_constraintStart_toStartOf="@+id/toDateButtonGraph"
+        app:layout_constraintTop_toBottomOf="@+id/fromDateButtonGraph" />
 
 </android.support.constraint.ConstraintLayout>

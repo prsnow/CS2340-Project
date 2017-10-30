@@ -59,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void handle(NetworkUtils.Response response) {
                 if (response.accept) {
                     String[] data = response.data;
-                    System.out.println(Arrays.toString(data));
+
                     for (int i = 1; i < data.length; i++) {
                         RatData ret = RatData.parse(data[i]);
 
@@ -72,9 +72,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             } catch(Exception e) {}
                         }
                     }
-                }
-                else {
-                    System.out.println(response.message);
                 }
             }
         });
