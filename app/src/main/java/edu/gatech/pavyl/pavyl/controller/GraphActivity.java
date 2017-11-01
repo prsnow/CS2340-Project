@@ -24,6 +24,7 @@ import edu.gatech.pavyl.pavyl.R;
 import edu.gatech.pavyl.pavyl.model.RatData;
 import edu.gatech.pavyl.pavyl.network.DataHandler;
 import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+import edu.gatech.pavyl.pavyl.network.SharedData;
 
 public class GraphActivity extends AppCompatActivity {
 
@@ -40,37 +41,19 @@ public class GraphActivity extends AppCompatActivity {
         end.setTimeInMillis(extras.getLong("END"));
 
         // request data between start and end dates
-        DataHandler.requestDataInRange(start, end, new NetworkUtils.ResponseHandler() {
+        DataHandler.requestMonthlyChartData(start, end, new NetworkUtils.ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
                 if (response.accept) { // graph update will run if response is accepted
-                    String[] data = response.data;
-                    Map<Integer, Integer> dataPerMonth = new HashMap<>();
-
-                    //go through all data loaded from server
-                    for (int i = 1; i < data.length; i++) {
-                        RatData ret = RatData.parse(data[i]);
-                        if(ret != null) { // make sure data can be parsed
-                            Calendar date = ret.getDate();
-
-                            if(date != null) { // make sure date is formatted correctly in data
-                                int month = date.get(Calendar.YEAR)*12 + (date.get(Calendar.MONTH)+1);
-                                // update dataPerMonth map
-                                if(dataPerMonth.get(month) == null) {
-                                    dataPerMonth.put(month, 1);
-                                }
-                                else {
-                                    dataPerMonth.put(month, dataPerMonth.get(month)+1);
-                                }
-                            }
-                        }
-                    }
-
-                    int startMonth = start.get(Calendar.YEAR)*12 + (start.get(Calendar.MONTH)+1);
+                    String[] data = response.data[1].split(SharedData.DATA_SPLIT);
                     List<DataPoint> dataPoints = new ArrayList<>();
 
-                    for(Map.Entry<Integer, Integer> entry : dataPerMonth.entrySet()) {
-                        dataPoints.add(new DataPoint((entry.getKey()-startMonth+1), entry.getValue()));
+                    try {
+                        for (int i = 0; i < data.length; i++) {
+                            dataPoints.add(new DataPoint(i+1, Integer.parseInt(data[i])));
+                        }
+                    } catch(Exception e) {
+                        e.printStackTrace();
                     }
 
                     GraphView graph = (GraphView) findViewById(R.id.graph);
