@@ -30,19 +30,19 @@ public class RatDataDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rat_data_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Get references to UI elements
-        keyLabel = (TextView) findViewById(R.id.keyLabel);
-        dateLabel = (TextView) findViewById(R.id.dateLabel);
-        locationLabel = (TextView) findViewById(R.id.locationLabel);
-        zipLabel = (TextView) findViewById(R.id.zipLabel);
-        addressLabel = (TextView) findViewById(R.id.addressLabel);
-        cityLabel = (TextView) findViewById(R.id.cityLabel);
-        boroughLabel = (TextView) findViewById(R.id.boroughLabel);
-        latitudeLabel = (TextView) findViewById(R.id.latitudeLabel);
-        longitudeLabel = (TextView) findViewById(R.id.longitudeLabel);
+        keyLabel = findViewById(R.id.keyLabel);
+        dateLabel = findViewById(R.id.dateLabel);
+        locationLabel = findViewById(R.id.locationLabel);
+        zipLabel = findViewById(R.id.zipLabel);
+        addressLabel = findViewById(R.id.addressLabel);
+        cityLabel = findViewById(R.id.cityLabel);
+        boroughLabel = findViewById(R.id.boroughLabel);
+        latitudeLabel = findViewById(R.id.latitudeLabel);
+        longitudeLabel = findViewById(R.id.longitudeLabel);
 
         if (getIntent().hasExtra(ARG_DATA_ID)) {
             //Populate the text views with the rat sighting data if supplied with data ID

@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
                 SessionData.extraData.get("admin").equals("true");
 
         //Get necessary UI elements from view
-        TextView usernameText = (TextView)findViewById(R.id.usernameLabel);
-        TextView statusText = (TextView)findViewById(R.id.statusLabel);
+        TextView usernameText = findViewById(R.id.usernameLabel);
+        TextView statusText = findViewById(R.id.statusLabel);
 
         //Update username and status labels based on current session
         usernameText.setText(SessionData.username);

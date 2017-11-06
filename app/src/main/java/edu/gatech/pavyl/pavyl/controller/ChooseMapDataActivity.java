@@ -3,21 +3,14 @@ package edu.gatech.pavyl.pavyl.controller;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import edu.gatech.pavyl.pavyl.R;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Calendar;
 
 public class ChooseMapDataActivity extends AppCompatActivity {
@@ -33,10 +26,10 @@ public class ChooseMapDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onStartDateSelect(View view) {
-        final TextView text = ((TextView) findViewById(R.id.fromDateLabel));
+        final TextView text = findViewById(R.id.fromDateLabel);
         Calendar date = startDate;
 
         if(date == null)
@@ -60,10 +53,10 @@ public class ChooseMapDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onEndDateSelect(View view) {
-        final TextView text = ((TextView) findViewById(R.id.toDateLabel));
+        final TextView text = findViewById(R.id.toDateLabel);
         Calendar date = endDate;
 
         if(date == null)
@@ -87,7 +80,7 @@ public class ChooseMapDataActivity extends AppCompatActivity {
 
     /**
      * Called when "Go To Map" is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onGoToMapPressed(View view) {
         if(startDate != null && endDate != null) {

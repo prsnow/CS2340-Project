@@ -26,10 +26,10 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onStartDateSelect(View view) {
-        final TextView text = ((TextView) findViewById(R.id.fromDateLabelGraph));
+        final TextView text = findViewById(R.id.fromDateLabelGraph);
         Calendar date = startDate;
 
         if(date == null)
@@ -53,10 +53,10 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onEndDateSelect(View view) {
-        final TextView text = ((TextView) findViewById(R.id.toDateLabelGraph));
+        final TextView text = findViewById(R.id.toDateLabelGraph);
         Calendar date = endDate;
 
         if(date == null)
@@ -80,7 +80,7 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when "Go To Graph" is pressed.
-     * @param view
+     * @param view - current view
      */
     public void onGoToGraphPressed(View view) {
         if(startDate != null && endDate != null) {

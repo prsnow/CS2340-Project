@@ -1,9 +1,5 @@
 package edu.gatech.pavyl.pavyl.model;
 
-/**
- * Created by aidancbrady on 9/25/17.
- */
-
 public class Account {
     /** The username of this account */
     private String username;

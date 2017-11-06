@@ -1,9 +1,5 @@
 package edu.gatech.pavyl.pavyl.network;
 
-/**
- * Created by aidancbrady on 9/25/17.
- */
-
 import java.util.List;
 import static edu.gatech.pavyl.pavyl.network.NetworkUtils.*;
 

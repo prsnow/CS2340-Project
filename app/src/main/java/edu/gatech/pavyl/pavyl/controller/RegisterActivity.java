@@ -27,10 +27,10 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public void onRegisterPressed(View view) {
         //Get necessary UI elements from view
-        EditText usernameEdit = (EditText)findViewById(R.id.r_edit_username);
-        EditText passwordEdit = (EditText)findViewById(R.id.r_edit_password);
-        EditText confirmEdit = (EditText)findViewById(R.id.r_edit_confirm);
-        Switch adminSwitch = (Switch)findViewById(R.id.adminSwitch);
+        EditText usernameEdit = findViewById(R.id.r_edit_username);
+        EditText passwordEdit = findViewById(R.id.r_edit_password);
+        EditText confirmEdit = findViewById(R.id.r_edit_confirm);
+        Switch adminSwitch = findViewById(R.id.adminSwitch);
 
         //Make sure username, password and confirm fields aren't empty
         if(usernameEdit.getText().length() > 0 && passwordEdit.getText().length() > 0 &&
@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
             //Make sure password field == confirm field
             if(passwordEdit.getText().toString().equals(confirmEdit.getText().toString())) {
                 //Show the progress spinner
-                final ProgressBar spinner = (ProgressBar)findViewById(R.id.registerSpinner);
+                final ProgressBar spinner = findViewById(R.id.registerSpinner);
                 spinner.setVisibility(View.VISIBLE);
                 //Prepare extra data for registration protocol
                 String extraText = "admin=" + adminSwitch.isChecked();

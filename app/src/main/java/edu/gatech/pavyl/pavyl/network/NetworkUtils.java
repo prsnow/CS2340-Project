@@ -9,10 +9,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by aidancbrady on 10/2/17.
- */
-
 public class NetworkUtils {
     /**
      * Sends a collection of messages to the server utilizing a quick socket connection.
@@ -22,7 +18,7 @@ public class NetworkUtils {
      */
     public static List<String> sendMessages(String... messages) {
         try {
-            List<String> responses = new ArrayList<String>();
+            List<String> responses = new ArrayList<>();
             Socket socket = new Socket(SharedData.SERVER_IP, SharedData.SERVER_PORT);
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
@@ -31,7 +27,7 @@ public class NetworkUtils {
                 writer.println(message);
             }
 
-            String reading = "";
+            String reading;
 
             while ((reading = reader.readLine()) != null) {
                 responses.add(reading.trim());
@@ -80,6 +76,10 @@ public class NetworkUtils {
             this.message = message;
         }
 
+        /**
+         * Sets the stored data of this Response object.
+         * @param data - data to store
+         */
         public void setData(String[] data) {
             this.data = data;
         }
@@ -92,6 +92,11 @@ public class NetworkUtils {
     public static abstract class AsyncWrapper extends AsyncTask<Void, Integer, Response> {
         private ResponseHandler handler;
 
+        /**
+         * Creates an AsyncWrapper with a provided ResponseHandler, which will be triggered after
+         * a response is received
+         * @param h - completion handler
+         */
         public AsyncWrapper(ResponseHandler h) {
             handler = h;
         }

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +19,6 @@ import edu.gatech.pavyl.pavyl.model.RatData;
 import edu.gatech.pavyl.pavyl.network.DataHandler;
 import edu.gatech.pavyl.pavyl.network.NetworkUtils;
 
-/**
- * Created by aidancbrady on 10/2/17.
- */
-
 public class RatDataListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +26,11 @@ public class RatDataListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rat_data_list);
 
         //Init toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Rat Sightings");
 
         //Init recycler view
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rat_data_list);
+        RecyclerView recyclerView = findViewById(R.id.rat_data_list);
         final RatDataRecyclerViewAdapter adapter = new RatDataRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
 
@@ -144,8 +139,8 @@ public class RatDataListActivity extends AppCompatActivity {
                 super(v);
 
                 view = v;
-                keyView = (TextView) view.findViewById(R.id.key);
-                dateView = (TextView) view.findViewById(R.id.date);
+                keyView = view.findViewById(R.id.key);
+                dateView = view.findViewById(R.id.date);
             }
         }
     }

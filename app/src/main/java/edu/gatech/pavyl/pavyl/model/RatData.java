@@ -18,6 +18,7 @@ public class RatData {
 
     /**
      * Creates a new RatData object from an existing data map.
+     * @param map - data map to create this RatData object from
      */
     public RatData(HashMap<String, String> map) {
         data = map;

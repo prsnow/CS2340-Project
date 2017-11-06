@@ -28,13 +28,13 @@ public class LoginActivity extends AppCompatActivity {
      */
     public void onLoginPressed(View view) {
         //Get username and password text fields from view
-        EditText usernameEdit = (EditText)findViewById(R.id.l_edit_username);
-        EditText passwordEdit = (EditText)findViewById(R.id.l_edit_password);
+        EditText usernameEdit = findViewById(R.id.l_edit_username);
+        EditText passwordEdit = findViewById(R.id.l_edit_password);
 
         //Make sure they aren't empty
         if (usernameEdit.getText().length() > 0 && passwordEdit.getText().length() > 0) {
             //Make that progress spinner visible
-            final ProgressBar spinner = (ProgressBar)findViewById(R.id.loginSpinner);
+            final ProgressBar spinner = findViewById(R.id.loginSpinner);
             spinner.setVisibility(View.VISIBLE);
 
             //Start the login protocol

@@ -3,15 +3,12 @@ package edu.gatech.pavyl.pavyl.controller;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import edu.gatech.pavyl.pavyl.model.RatData;
@@ -69,7 +66,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 float lon = Float.parseFloat(ret.getData("longitude"));
                                 LatLng loc = new LatLng(lat, lon);
                                 mMap.addMarker(new MarkerOptions().position(loc).title(ret.getData("data_key")));
-                            } catch(Exception e) {}
+                            } catch(Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
