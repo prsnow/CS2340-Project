@@ -77,17 +77,17 @@ public class RatData {
      * @return String representation of RatData object without data_key field
      */
     public String compileNoKey() {
-        String ret = "";
+        StringBuilder ret = new StringBuilder();
 
         for (int i = 0; i < SharedData.DATA_FIELDS.length; i++) {
-            ret += getData(SharedData.DATA_FIELDS[i]);
+            ret.append(getData(SharedData.DATA_FIELDS[i]));
 
             if (i < SharedData.DATA_FIELDS.length - 1) {
-                ret += SharedData.DATA_SPLIT;
+                ret.append(SharedData.DATA_SPLIT);
             }
         }
 
-        return ret;
+        return ret.toString();
     }
 
     /**

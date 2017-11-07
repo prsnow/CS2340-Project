@@ -49,8 +49,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Bundle extras = getIntent().getExtras();
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
+        assert extras != null;
+
         start.setTimeInMillis(extras.getLong("START"));
         end.setTimeInMillis(extras.getLong("END"));
+
         DataHandler.requestDataInRange(start, end, new ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {

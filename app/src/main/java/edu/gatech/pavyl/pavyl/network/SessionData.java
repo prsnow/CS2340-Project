@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Data that is mainained for a single user session.
+ * Data that is maintained for a single user session.
  */
 public class SessionData
 {

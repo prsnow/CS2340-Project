@@ -17,7 +17,9 @@
         android:text="Select"
         app:layout_constraintEnd_toStartOf="@+id/button_go_to_map"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDateLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/toDateLabel"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="31dp" />
 
     <Button
         android:id="@+id/fromDateButton"
@@ -44,7 +46,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginLeft="16dp" />
 
     <Button
         android:id="@+id/button_go_to_map"
@@ -68,7 +71,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/fromDateButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapDateTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/mapDateTitle"
+        android:layout_marginLeft="31dp" />
 
     <TextView
         android:id="@+id/toDateLabel"
