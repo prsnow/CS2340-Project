@@ -30,16 +30,6 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         this.mLayoutManager = layoutManager;
     }
 
-    public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-        visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
-    }
-
-    public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-        visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
-    }
-
     public int getLastVisibleItem(int[] lastVisibleItemPositions) {
         int maxSize = 0;
         for (int i = 0; i < lastVisibleItemPositions.length; i++) {
@@ -90,14 +80,6 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         }
     }
 
-    // Call whenever performing new searches
-    public void resetState() {
-        this.currentPage = this.startingPageIndex;
-        this.previousTotalItemCount = 0;
-        this.loading = true;
-    }
-
     // Defines the process for actually loading more data based on page
     public abstract void onLoadMore(int page, int totalItemsCount, RecyclerView view);
-
 }
