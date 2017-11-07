@@ -10,8 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.network.AuthHandler;
-import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+import edu.gatech.pavyl.pavyl.model.AuthHandler;
+import edu.gatech.pavyl.pavyl.model.NetworkUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 

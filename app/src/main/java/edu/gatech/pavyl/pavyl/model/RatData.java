@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import edu.gatech.pavyl.pavyl.network.SharedData;
-
 /**
  * This class contains data pertaining to a single rat sighting. All data is organized into a single
  * HashMap, which can be accessed via some helper methods.

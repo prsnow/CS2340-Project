@@ -16,8 +16,8 @@ import java.util.List;
 
 import edu.gatech.pavyl.pavyl.R;
 import edu.gatech.pavyl.pavyl.model.RatData;
-import edu.gatech.pavyl.pavyl.network.DataHandler;
-import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+import edu.gatech.pavyl.pavyl.model.DataHandler;
+import edu.gatech.pavyl.pavyl.model.NetworkUtils;
 
 public class RatDataListActivity extends AppCompatActivity {
     @Override

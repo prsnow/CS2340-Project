@@ -10,10 +10,10 @@ import java.text.SimpleDateFormat;
 
 import edu.gatech.pavyl.pavyl.R;
 import edu.gatech.pavyl.pavyl.model.RatData;
-import edu.gatech.pavyl.pavyl.network.DataHandler;
-import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+import edu.gatech.pavyl.pavyl.model.DataHandler;
+import edu.gatech.pavyl.pavyl.model.NetworkUtils;
 
-import static edu.gatech.pavyl.pavyl.network.NetworkUtils.ResponseHandler;
+import static edu.gatech.pavyl.pavyl.model.NetworkUtils.ResponseHandler;
 
 import android.widget.EditText;
 
@@ -74,17 +74,5 @@ public class EnterRatSightingActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-    }
-
-    /**
-     * Makes unique key
-     *
-     * @return key
-     */
-    private int makeKey() {
-        //find largest key in current + 1?
-        return 5;
     }
 }

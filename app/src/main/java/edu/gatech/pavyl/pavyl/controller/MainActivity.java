@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.network.SessionData;
+import edu.gatech.pavyl.pavyl.model.SessionData;
 
 public class MainActivity extends AppCompatActivity {
 

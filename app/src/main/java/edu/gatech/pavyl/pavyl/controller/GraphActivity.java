@@ -12,9 +12,9 @@ import java.util.Calendar;
 import java.util.List;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.network.DataHandler;
-import edu.gatech.pavyl.pavyl.network.NetworkUtils;
-import edu.gatech.pavyl.pavyl.network.SharedData;
+import edu.gatech.pavyl.pavyl.model.DataHandler;
+import edu.gatech.pavyl.pavyl.model.NetworkUtils;
+import edu.gatech.pavyl.pavyl.model.SharedData;
 
 public class GraphActivity extends AppCompatActivity {
 

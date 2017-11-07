@@ -1,7 +1,6 @@
-package edu.gatech.pavyl.pavyl.network;
+package edu.gatech.pavyl.pavyl.model;
 
 import java.util.List;
-import static edu.gatech.pavyl.pavyl.network.NetworkUtils.*;
 
 
 /**
@@ -46,14 +45,13 @@ public class AuthHandler
      * @param password - password to log in with
      * @param completionHandler - completion handler to trigger upon completion
      */
-    public static void login(final String username, final String password, final ResponseHandler completionHandler)
+    public static void login(final String username, final String password, final NetworkUtils.ResponseHandler completionHandler)
     {
-        new AsyncWrapper(completionHandler) {
+        new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params)
+            public NetworkUtils.Response doInBackground(Void... params)
             {
-                List<String> response = sendMessages(compileMsg("AUTH", username, password));
-                Response ret = null;
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("AUTH", username, password));
 
                 try {
                     if(response != null)
@@ -69,10 +67,10 @@ public class AuthHandler
                                 SessionData.loadExtraData(split[1]);
                             }
 
-                            return Response.ACCEPT;
+                            return NetworkUtils.Response.ACCEPT;
                         }
                         else {
-                            return new Response(false, split[1]);
+                            return new NetworkUtils.Response(false, split[1]);
                         }
                     }
                 } catch(Exception e) {
@@ -80,7 +78,7 @@ public class AuthHandler
                     e.printStackTrace();
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -93,14 +91,13 @@ public class AuthHandler
      * @param extra - extra data for this user to store in the account database
      * @param completionHandler - completion handler to trigger upon completion
      */
-    public static void register(final String username, final String password, final String extra, final ResponseHandler completionHandler)
+    public static void register(final String username, final String password, final String extra, final NetworkUtils.ResponseHandler completionHandler)
     {
-        new AsyncWrapper(completionHandler) {
+        new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params)
+            public NetworkUtils.Response doInBackground(Void... params)
             {
-                List<String> response = sendMessages(compileMsg("REGISTER", username, password, extra));
-                Response ret = null;
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("REGISTER", username, password, extra));
 
                 try {
                     if(response != null)
@@ -111,10 +108,10 @@ public class AuthHandler
                         {
                             SessionData.username = username;
                             SessionData.loadExtraData(extra);
-                            return Response.ACCEPT;
+                            return NetworkUtils.Response.ACCEPT;
                         }
                         else {
-                            return new Response(false, split[1]);
+                            return new NetworkUtils.Response(false, split[1]);
                         }
                     }
                 } catch(Exception e) {
@@ -122,7 +119,7 @@ public class AuthHandler
                     e.printStackTrace();
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }

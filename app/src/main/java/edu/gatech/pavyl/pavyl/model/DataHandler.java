@@ -1,12 +1,8 @@
-package edu.gatech.pavyl.pavyl.network;
+package edu.gatech.pavyl.pavyl.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
-import edu.gatech.pavyl.pavyl.model.RatData;
-
-import static edu.gatech.pavyl.pavyl.network.NetworkUtils.*;
 
 /**
  * The DataHandler class provides tools to access the database of rat sightings. Everything is
@@ -22,29 +18,29 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread
      *                          when the response is received
      */
-    public static void requestData(final int limit, final int offset, final ResponseHandler completionHandler) {
+    public static void requestData(final int limit, final int offset, final NetworkUtils.ResponseHandler completionHandler) {
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("GETDATA", limit, offset));
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("GETDATA", limit, offset));
 
                 try {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
                         if (split[0].equals("ACCEPT")) {
-                            Response ret = new Response(true, null);
+                            NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
                         } else {
-                            return new Response(false, split[1]);
+                            return new NetworkUtils.Response(false, split[1]);
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -57,33 +53,33 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread
      *                          when the response is received
      */
-    public static void requestDataInRange(final Calendar startDate, final Calendar endDate, final ResponseHandler completionHandler) {
+    public static void requestDataInRange(final Calendar startDate, final Calendar endDate, final NetworkUtils.ResponseHandler completionHandler) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
         final String start = fmt.format(startDate.getTime());
         final String end = fmt.format(endDate.getTime());
 
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("GETRANGE", start, end));
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("GETRANGE", start, end));
 
                 try {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
                         if (split[0].equals("ACCEPT")) {
-                            Response ret = new Response(true, null);
+                            NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
                         } else {
-                            return new Response(false, split[1]);
+                            return new NetworkUtils.Response(false, split[1]);
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -96,33 +92,33 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread
      *                          when the response is received
      */
-    public static void requestMonthlyChartData(final Calendar startDate, final Calendar endDate, final ResponseHandler completionHandler) {
+    public static void requestMonthlyChartData(final Calendar startDate, final Calendar endDate, final NetworkUtils.ResponseHandler completionHandler) {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
         final String start = fmt.format(startDate.getTime());
         final String end = fmt.format(endDate.getTime());
 
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("MGRAPH", start, end));
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("MGRAPH", start, end));
 
                 try {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
                         if (split[0].equals("ACCEPT")) {
-                            Response ret = new Response(true, null);
+                            NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
                         } else {
-                            return new Response(false, split[1]);
+                            return new NetworkUtils.Response(false, split[1]);
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -135,23 +131,23 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread when the response is
      *                          received
      */
-    public static void addData(final RatData newData, final ResponseHandler completionHandler) {
+    public static void addData(final RatData newData, final NetworkUtils.ResponseHandler completionHandler) {
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("ADDDATA", newData.compileNoKey()));
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("ADDDATA", newData.compileNoKey()));
 
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
                     if (split[0].equals("ACCEPT")) {
-                        return Response.ACCEPT;
+                        return NetworkUtils.Response.ACCEPT;
                     } else {
-                        return new Response(false, split[1]);
+                        return new NetworkUtils.Response(false, split[1]);
                     }
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -165,23 +161,23 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread when the response is
      *                          received
      */
-    public static void editData(final RatData editedData, final ResponseHandler completionHandler) {
+    public static void editData(final RatData editedData, final NetworkUtils.ResponseHandler completionHandler) {
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("EDITDATA", editedData.compile()));
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("EDITDATA", editedData.compile()));
 
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
                     if (split[0].equals("ACCEPT")) {
-                        return Response.ACCEPT;
+                        return NetworkUtils.Response.ACCEPT;
                     } else {
-                        return new Response(false, split[1]);
+                        return new NetworkUtils.Response(false, split[1]);
                     }
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }
@@ -194,24 +190,24 @@ public class DataHandler {
      * @param completionHandler - a completion handler, fired on UI thread when the response is
      *                          received
      */
-    public static void deleteData(final RatData toDelete, final ResponseHandler completionHandler) {
+    public static void deleteData(final RatData toDelete, final NetworkUtils.ResponseHandler completionHandler) {
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
-            public Response doInBackground(Void... params) {
-                List<String> response = sendMessages(compileMsg("DELDATA",
+            public NetworkUtils.Response doInBackground(Void... params) {
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("DELDATA",
                         toDelete.getData(SharedData.DATA_KEY_ID)));
 
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
                     if (split[0].equals("ACCEPT")) {
-                        return Response.ACCEPT;
+                        return NetworkUtils.Response.ACCEPT;
                     } else {
-                        return new Response(false, split[1]);
+                        return new NetworkUtils.Response(false, split[1]);
                     }
                 }
 
-                return Response.ERROR;
+                return NetworkUtils.Response.ERROR;
             }
         }.execute();
     }

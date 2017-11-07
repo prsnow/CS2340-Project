@@ -46,6 +46,7 @@ public class RatDataDetailActivity extends AppCompatActivity {
 
         if (getIntent().hasExtra(ARG_DATA_ID)) {
             //Populate the text views with the rat sighting data if supplied with data ID
+            @SuppressWarnings("unchecked")
             HashMap<String, String> dataMap =
                     (HashMap<String, String>) getIntent().getSerializableExtra(ARG_DATA_ID);
             ratData = new RatData(dataMap);

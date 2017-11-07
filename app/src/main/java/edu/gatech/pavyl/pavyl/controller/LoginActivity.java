@@ -9,13 +9,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import edu.gatech.pavyl.pavyl.R;
-import edu.gatech.pavyl.pavyl.network.AuthHandler;
-import edu.gatech.pavyl.pavyl.network.NetworkUtils;
+import edu.gatech.pavyl.pavyl.model.AuthHandler;
+import edu.gatech.pavyl.pavyl.model.NetworkUtils;
 
 public class LoginActivity extends AppCompatActivity {
-    private static final String USERNAME = "user";
-    private static final String PASSWORD = "password";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

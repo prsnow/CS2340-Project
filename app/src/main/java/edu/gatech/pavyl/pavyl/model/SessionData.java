@@ -1,4 +1,6 @@
-package edu.gatech.pavyl.pavyl.network;
+package edu.gatech.pavyl.pavyl.model;
+
+import android.support.annotation.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,9 +11,11 @@ import java.util.Map;
 public class SessionData
 {
 	/** Current user's username */
+	@Nullable
 	public static String username;
 	/** Extra data in string format */
-	private static String extraDataString;
+	@Nullable
+    private static String extraDataString;
 	/** Extra data imported into a map for O(1) lookups */
 	public static Map<String, String> extraData = new HashMap<>();
 

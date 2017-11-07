@@ -1,4 +1,4 @@
-package edu.gatech.pavyl.pavyl.network;
+package edu.gatech.pavyl.pavyl.model;
 
 import android.os.AsyncTask;
 
@@ -89,7 +89,7 @@ public class NetworkUtils {
      * A wrapper of Android's "AsyncTask" data structure, allowing for some more dynamic code on my
      * end.
      */
-    public static abstract class AsyncWrapper extends AsyncTask<Void, Integer, Response> {
+    public abstract static class AsyncWrapper extends AsyncTask<Void, Integer, Response> {
         private ResponseHandler handler;
 
         /**
