@@ -11,10 +11,9 @@ public class SharedData
 	
 	//CSV splitters
 	public static final String SPLITTER = "%1%";
-	public static final String SPLITTER_2 = "@2@";
 	public static final String DATA_SPLIT = ",";
 	
-	public static final Set<Character> ALLOWED_CHARS = new HashSet<>();
+	private static final Set<Character> ALLOWED_CHARS = new HashSet<>();
 	public static final int MAX_USERNAME_LENGTH = 32;
 
 	/**

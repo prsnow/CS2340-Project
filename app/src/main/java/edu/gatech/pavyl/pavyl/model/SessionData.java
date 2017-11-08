@@ -12,12 +12,9 @@ public class SessionData
 {
 	/** Current user's username */
 	@Nullable
-	public static String username;
-	/** Extra data in string format */
-	@Nullable
-    private static String extraDataString;
+	private static String username;
 	/** Extra data imported into a map for O(1) lookups */
-	public static Map<String, String> extraData = new HashMap<>();
+	public static final Map<String, String> extraData = new HashMap<>();
 
 	/**
 	 * Loads extra data from a string format, with SharedData.DATA_SPLIT as the delimiter.
@@ -25,8 +22,6 @@ public class SessionData
 	 */
 	public static void loadExtraData(String s)
 	{
-		extraDataString = s;
-
 		String[] split = s.split(SharedData.DATA_SPLIT);
 
 		for(String dataPair : split)
@@ -37,12 +32,27 @@ public class SessionData
 	}
 
 	/**
+	 * Returns the username stored in this session cache.
+	 * @return username in the session cache
+	 */
+	public static String getUsername() {
+		return username;
+	}
+
+	/**
+	 * Sets the username stored in this session cache.
+	 * @param user - username to set
+	 */
+	public static void setUsername(String user) {
+		username = user;
+	}
+
+	/**
 	 * Clears all session data.
 	 */
 	public static void reset()
 	{
 		username = null;
-		extraDataString = null;
 		extraData.clear();
 	}
 }

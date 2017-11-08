@@ -14,18 +14,6 @@ import edu.gatech.pavyl.pavyl.model.RatData;
 public class RatDataDetailActivity extends AppCompatActivity {
     public static final String ARG_DATA_ID = "rat_data_id";
 
-    private RatData ratData;
-
-    private TextView keyLabel;
-    private TextView dateLabel;
-    private TextView locationLabel;
-    private TextView zipLabel;
-    private TextView addressLabel;
-    private TextView cityLabel;
-    private TextView boroughLabel;
-    private TextView latitudeLabel;
-    private TextView longitudeLabel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,22 +22,22 @@ public class RatDataDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Get references to UI elements
-        keyLabel = findViewById(R.id.keyLabel);
-        dateLabel = findViewById(R.id.dateLabel);
-        locationLabel = findViewById(R.id.locationLabel);
-        zipLabel = findViewById(R.id.zipLabel);
-        addressLabel = findViewById(R.id.addressLabel);
-        cityLabel = findViewById(R.id.cityLabel);
-        boroughLabel = findViewById(R.id.boroughLabel);
-        latitudeLabel = findViewById(R.id.latitudeLabel);
-        longitudeLabel = findViewById(R.id.longitudeLabel);
+        TextView keyLabel = findViewById(R.id.keyLabel);
+        TextView dateLabel = findViewById(R.id.dateLabel);
+        TextView locationLabel = findViewById(R.id.locationLabel);
+        TextView zipLabel = findViewById(R.id.zipLabel);
+        TextView addressLabel = findViewById(R.id.addressLabel);
+        TextView cityLabel = findViewById(R.id.cityLabel);
+        TextView boroughLabel = findViewById(R.id.boroughLabel);
+        TextView latitudeLabel = findViewById(R.id.latitudeLabel);
+        TextView longitudeLabel = findViewById(R.id.longitudeLabel);
 
         if (getIntent().hasExtra(ARG_DATA_ID)) {
             //Populate the text views with the rat sighting data if supplied with data ID
             @SuppressWarnings("unchecked")
             HashMap<String, String> dataMap =
                     (HashMap<String, String>) getIntent().getSerializableExtra(ARG_DATA_ID);
-            ratData = new RatData(dataMap);
+            RatData ratData = new RatData(dataMap);
 
             keyLabel.setText("Key: " + ratData.getData("data_key"));
             dateLabel.setText("Date: " + ratData.getData("date"));

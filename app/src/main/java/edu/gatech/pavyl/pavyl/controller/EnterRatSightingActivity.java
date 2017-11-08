@@ -69,7 +69,7 @@ public class EnterRatSightingActivity extends AppCompatActivity {
         DataHandler.addData(sighting, new ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
-                if (response.accept) {
+                if (response.getAccept()) {
                     finish();
                 }
             }

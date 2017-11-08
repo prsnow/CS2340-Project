@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void handle(NetworkUtils.Response response) {
                             //Note that everything here is handled in the UI thread
-                            if (response.accept) {
+                            if (response.getAccept()) {
                                 //If the server approved authentication, go to main view
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                             else {
                                 //If the server declined authentication, warn the user
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage(response.message);
+                                builder.setMessage(response.getMessage());
                                 builder.setTitle("Warning");
                                 builder.create().show();
                             }

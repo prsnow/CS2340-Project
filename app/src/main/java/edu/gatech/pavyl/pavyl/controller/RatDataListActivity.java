@@ -45,10 +45,10 @@ public class RatDataListActivity extends AppCompatActivity {
                 DataHandler.requestData(100, totalItemsCount, new NetworkUtils.ResponseHandler() {
                     @Override
                     public void handle(NetworkUtils.Response response) {
-                        if (response.accept) {
+                        if (response.getAccept()) {
                             //If the server accepted our request, start parsing retrieved data
                             List<RatData> toAdd = new ArrayList<>();
-                            String[] data = response.data;
+                            String[] data = response.getData();
 
                             for (int i = 1; i < data.length; i++) {
                                 RatData ret = RatData.parse(data[i]);
@@ -72,9 +72,9 @@ public class RatDataListActivity extends AppCompatActivity {
         DataHandler.requestData(100, 0, new NetworkUtils.ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
-                if (response.accept) {
+                if (response.getAccept()) {
                     List<RatData> toAdd = new ArrayList<>();
-                    String[] data = response.data;
+                    String[] data = response.getData();
 
                     for (int i = 1; i < data.length; i++) {
                         if (i < data.length) {
@@ -128,14 +128,14 @@ public class RatDataListActivity extends AppCompatActivity {
             return loadedRatData.size();
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public final View view;
-            public final TextView keyView;
-            public final TextView dateView;
+        class ViewHolder extends RecyclerView.ViewHolder {
+            final View view;
+            final TextView keyView;
+            final TextView dateView;
 
-            public RatData ratData;
+            RatData ratData;
 
-            public ViewHolder(View v) {
+            ViewHolder(View v) {
                 super(v);
 
                 view = v;

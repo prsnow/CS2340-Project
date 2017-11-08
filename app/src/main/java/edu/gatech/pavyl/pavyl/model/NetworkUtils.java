@@ -54,15 +54,15 @@ public class NetworkUtils {
         /**
          * Whether or not the server accepted the client's request.
          */
-        public boolean accept;
+        private final boolean accept;
         /**
          * The message the server responded with, if it exists.
          */
-        public String message;
+        private final String message;
         /**
          * Additional data received from server
          */
-        public String[] data;
+        private String[] data;
 
         /**
          * Creates a new response object from a boolean 'accept' field and an optional message
@@ -74,6 +74,30 @@ public class NetworkUtils {
         public Response(boolean accept, String message) {
             this.accept = accept;
             this.message = message;
+        }
+
+        /**
+         * Returns whether or not the server accepted the previous request.
+         * @return - if the server accepted the previous request
+         */
+        public boolean getAccept() {
+            return accept;
+        }
+
+        /**
+         * Gets the message returned by the server.
+         * @return - message returned by server
+         */
+        public String getMessage() {
+            return message;
+        }
+
+        /**
+         * Gets the data stored in this Response object.
+         * @return - the data in this Response object
+         */
+        public String[] getData() {
+            return data;
         }
 
         /**
@@ -126,7 +150,9 @@ public class NetworkUtils {
      * @return completed string
      */
     public static String compileMsg(Object... strings) {
-        if(strings == null) return null;
+        if(strings == null) {
+            return null;
+        }
 
         StringBuilder str = new StringBuilder();
 

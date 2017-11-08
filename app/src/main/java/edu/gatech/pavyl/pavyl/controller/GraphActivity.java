@@ -36,8 +36,8 @@ public class GraphActivity extends AppCompatActivity {
         DataHandler.requestMonthlyChartData(start, end, new NetworkUtils.ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
-                if (response.accept) { // graph update will run if response is accepted
-                    String[] data = response.data[1].split(SharedData.DATA_SPLIT);
+                if (response.getAccept()) { // graph update will run if response is accepted
+                    String[] data = response.getData()[1].split(SharedData.DATA_SPLIT);
                     List<DataPoint> dataPoints = new ArrayList<>();
 
                     try {

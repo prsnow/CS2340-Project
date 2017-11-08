@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         TextView statusText = findViewById(R.id.statusLabel);
 
         //Update username and status labels based on current session
-        usernameText.setText(SessionData.username);
+        usernameText.setText(SessionData.getUsername());
         statusText.setText("Status: " + (admin ? "Admin" : "User"));
     }
 

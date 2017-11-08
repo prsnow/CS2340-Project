@@ -60,7 +60,7 @@ public class AuthHandler
 
                         if("ACCEPT".equals(split[0]))
                         {
-                            SessionData.username = username;
+                            SessionData.setUsername(username);
 
                             if(split.length == 2)
                             {
@@ -106,7 +106,7 @@ public class AuthHandler
 
                         if("ACCEPT".equals(split[0]))
                         {
-                            SessionData.username = username;
+                            SessionData.setUsername(username);
                             SessionData.loadExtraData(extra);
                             return NetworkUtils.Response.ACCEPT;
                         }

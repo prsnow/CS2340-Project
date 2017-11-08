@@ -57,8 +57,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         DataHandler.requestDataInRange(start, end, new ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
-                if (response.accept) {
-                    String[] data = response.data;
+                if (response.getAccept()) {
+                    String[] data = response.getData();
 
                     for (int i = 1; i < data.length; i++) {
                         RatData ret = RatData.parse(data[i]);

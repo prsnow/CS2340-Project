@@ -10,27 +10,25 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  * (https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892)
  */
 
-public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener
+abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener
 {
     // The minimum amount of items to have below your current scroll position
     // before loading more.
-    private int visibleThreshold = 5;
+    private static final int VISIBLE_THRESHOLD = 5;
     // The current offset index of data you have loaded
     private int currentPage = 0;
     // The total number of items in the dataset after the last load
     private int previousTotalItemCount = 0;
     // True if we are still waiting for the last set of data to load.
     private boolean loading = true;
-    // Sets the starting page index
-    private final int startingPageIndex = 0;
 
-    RecyclerView.LayoutManager mLayoutManager;
+    private final RecyclerView.LayoutManager mLayoutManager;
 
-    public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+    protected EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
-    public int getLastVisibleItem(int[] lastVisibleItemPositions) {
+    private int getLastVisibleItem(int[] lastVisibleItemPositions) {
         int maxSize = 0;
         for (int i = 0; i < lastVisibleItemPositions.length; i++) {
             if (i == 0) {
@@ -70,10 +68,10 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         }
 
         // If it isn’t currently loading, we check to see if we have breached
-        // the visibleThreshold and need to reload more data.
+        // the VISIBLE_THRESHOLD and need to reload more data.
         // If we do need to reload some more data, we execute onLoadMore to fetch the data.
         // threshold should reflect how many total columns there are too
-        if (!loading && ((lastVisibleItemPosition + visibleThreshold) > totalItemCount)) {
+        if (!loading && ((lastVisibleItemPosition + VISIBLE_THRESHOLD) > totalItemCount)) {
             currentPage++;
             onLoadMore(currentPage, totalItemCount, view);
             loading = true;
