@@ -33,8 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         Switch adminSwitch = findViewById(R.id.adminSwitch);
 
         //Make sure username, password and confirm fields aren't empty
-        if(usernameEdit.getText().length() > 0 && passwordEdit.getText().length() > 0 &&
-                confirmEdit.getText().length() > 0) {
+        if((usernameEdit.getText().length() > 0) && (passwordEdit.getText().length() > 0) &&
+                (confirmEdit.getText().length() > 0)) {
             //Make sure password field == confirm field
             if(passwordEdit.getText().toString().equals(confirmEdit.getText().toString())) {
                 //Show the progress spinner

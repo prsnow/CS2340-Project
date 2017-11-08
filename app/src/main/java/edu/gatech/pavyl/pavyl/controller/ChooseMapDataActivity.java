@@ -83,7 +83,7 @@ public class ChooseMapDataActivity extends AppCompatActivity {
      * @param view - current view
      */
     public void onGoToMapPressed(View view) {
-        if(startDate != null && endDate != null) {
+        if((startDate != null) && (endDate != null)) {
             Intent intent = new Intent(this, MapsActivity.class);
             intent.putExtra("START", startDate.getTimeInMillis());
             intent.putExtra("END", endDate.getTimeInMillis());

@@ -95,7 +95,7 @@ public class RatDataListActivity extends AppCompatActivity {
 
     public class RatDataRecyclerViewAdapter
             extends RecyclerView.Adapter<RatDataRecyclerViewAdapter.ViewHolder> {
-        private List<RatData> loadedRatData = new ArrayList<>();
+        private final List<RatData> loadedRatData = new ArrayList<>();
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -80,7 +80,7 @@ public class RatData {
         for (int i = 0; i < SharedData.DATA_FIELDS.length; i++) {
             ret.append(getData(SharedData.DATA_FIELDS[i]));
 
-            if (i < SharedData.DATA_FIELDS.length - 1) {
+            if (i < (SharedData.DATA_FIELDS.length - 1)) {
                 ret.append(SharedData.DATA_SPLIT);
             }
         }

@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Determine whether this user is an admin from session data
-        boolean admin = SessionData.extraData.get("admin") != null &&
-                SessionData.extraData.get("admin").equals("true");
+        boolean admin = (SessionData.extraData.get("admin") != null) &&
+                "true".equals(SessionData.extraData.get("admin"));
 
         //Get necessary UI elements from view
         TextView usernameText = findViewById(R.id.usernameLabel);

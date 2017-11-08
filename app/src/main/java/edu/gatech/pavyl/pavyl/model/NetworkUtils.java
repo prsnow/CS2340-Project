@@ -90,7 +90,7 @@ public class NetworkUtils {
      * end.
      */
     public abstract static class AsyncWrapper extends AsyncTask<Void, Integer, Response> {
-        private ResponseHandler handler;
+        private final ResponseHandler handler;
 
         /**
          * Creates an AsyncWrapper with a provided ResponseHandler, which will be triggered after
@@ -110,13 +110,13 @@ public class NetworkUtils {
     /**
      * This should be implemented as an anonymous class when handling responses of auth methods.
      */
-    public static interface ResponseHandler {
+    public interface ResponseHandler {
         /**
          * Handles a response from the server.
          *
          * @param response - response to handle
          */
-        public void handle(Response response);
+        void handle(Response response);
     }
 
     /**
@@ -126,12 +126,14 @@ public class NetworkUtils {
      * @return completed string
      */
     public static String compileMsg(Object... strings) {
+        if(strings == null) return null;
+
         StringBuilder str = new StringBuilder();
 
         for (int i = 0; i < strings.length; i++) {
             str.append(strings[i]);
 
-            if (i < strings.length - 1) {
+            if (i < (strings.length - 1)) {
                 str.append(SharedData.SPLITTER);
             }
         }

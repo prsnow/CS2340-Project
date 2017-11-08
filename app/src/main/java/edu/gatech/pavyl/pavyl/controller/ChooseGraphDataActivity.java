@@ -83,7 +83,7 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
      * @param view - current view
      */
     public void onGoToGraphPressed(View view) {
-        if(startDate != null && endDate != null) {
+        if((startDate != null) && (endDate != null)) {
             Intent intent = new Intent(this, GraphActivity.class);
             intent.putExtra("START", startDate.getTimeInMillis());
             intent.putExtra("END", endDate.getTimeInMillis());

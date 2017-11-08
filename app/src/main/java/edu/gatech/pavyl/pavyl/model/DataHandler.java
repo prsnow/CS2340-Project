@@ -28,7 +28,7 @@ public class DataHandler {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                        if (split[0].equals("ACCEPT")) {
+                        if ("ACCEPT".equals(split[0])) {
                             NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
@@ -67,7 +67,7 @@ public class DataHandler {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                        if (split[0].equals("ACCEPT")) {
+                        if ("ACCEPT".equals(split[0])) {
                             NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
@@ -106,7 +106,7 @@ public class DataHandler {
                     if (response != null) {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                        if (split[0].equals("ACCEPT")) {
+                        if ("ACCEPT".equals(split[0])) {
                             NetworkUtils.Response ret = new NetworkUtils.Response(true, null);
                             ret.setData(split);
                             return ret;
@@ -140,7 +140,7 @@ public class DataHandler {
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                    if (split[0].equals("ACCEPT")) {
+                    if ("ACCEPT".equals(split[0])) {
                         return NetworkUtils.Response.ACCEPT;
                     } else {
                         return new NetworkUtils.Response(false, split[1]);
@@ -170,7 +170,7 @@ public class DataHandler {
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                    if (split[0].equals("ACCEPT")) {
+                    if ("ACCEPT".equals(split[0])) {
                         return NetworkUtils.Response.ACCEPT;
                     } else {
                         return new NetworkUtils.Response(false, split[1]);
@@ -200,7 +200,7 @@ public class DataHandler {
                 if (response != null) {
                     String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                    if (split[0].equals("ACCEPT")) {
+                    if ("ACCEPT".equals(split[0])) {
                         return NetworkUtils.Response.ACCEPT;
                     } else {
                         return new NetworkUtils.Response(false, split[1]);

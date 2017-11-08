@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordEdit = findViewById(R.id.l_edit_password);
 
         //Make sure they aren't empty
-        if (usernameEdit.getText().length() > 0 && passwordEdit.getText().length() > 0) {
+        if ((usernameEdit.getText().length() > 0) && (passwordEdit.getText().length() > 0)) {
             //Make that progress spinner visible
             final ProgressBar spinner = findViewById(R.id.loginSpinner);
             spinner.setVisibility(View.VISIBLE);

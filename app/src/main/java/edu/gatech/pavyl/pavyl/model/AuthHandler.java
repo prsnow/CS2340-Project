@@ -58,7 +58,7 @@ public class AuthHandler
                     {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                        if(split[0].equals("ACCEPT"))
+                        if("ACCEPT".equals(split[0]))
                         {
                             SessionData.username = username;
 
@@ -104,7 +104,7 @@ public class AuthHandler
                     {
                         String[] split = response.get(0).split(SharedData.SPLITTER);
 
-                        if(split[0].equals("ACCEPT"))
+                        if("ACCEPT".equals(split[0]))
                         {
                             SessionData.username = username;
                             SessionData.loadExtraData(extra);
