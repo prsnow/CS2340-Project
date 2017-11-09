@@ -54,7 +54,6 @@ public class EnterRatSightingActivity extends AppCompatActivity {
         SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
         String dateTime = f.format(date);
 
-        dataMap.put("data_key", "");
         dataMap.put("date", dateTime);
         dataMap.put("location", locationEdit);
         dataMap.put("zip", zipEdit);
