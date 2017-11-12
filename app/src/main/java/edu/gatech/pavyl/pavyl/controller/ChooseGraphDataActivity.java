@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -26,9 +25,8 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view - current view
      */
-    public void onStartDateSelect(View view) {
+    public void onStartDateSelect() {
         final TextView text = findViewById(R.id.fromDateLabelGraph);
         Calendar date = startDate;
 
@@ -53,9 +51,8 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when start date select button is pressed.
-     * @param view - current view
      */
-    public void onEndDateSelect(View view) {
+    public void onEndDateSelect() {
         final TextView text = findViewById(R.id.toDateLabelGraph);
         Calendar date = endDate;
 
@@ -80,9 +77,8 @@ public class ChooseGraphDataActivity extends AppCompatActivity {
 
     /**
      * Called when "Go To Graph" is pressed.
-     * @param view - current view
      */
-    public void onGoToGraphPressed(View view) {
+    public void onGoToGraphPressed() {
         if((startDate != null) && (endDate != null)) {
             Intent intent = new Intent(this, GraphActivity.class);
             intent.putExtra("START", startDate.getTimeInMillis());

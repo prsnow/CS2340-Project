@@ -12,17 +12,14 @@ public class DataHandler {
     /**
      * Request a certain amount of rat data from the server. The limit and offset will be passed
      * into the database query.
-     *
-     * @param limit             - how many data values we want to retrieve
-     * @param offset            - the index to read the data values from
+     *  @param offset            - the index to read the data values from
      * @param completionHandler - a completion handler, fired on UI thread
-     *                          when the response is received
      */
-    public static void requestData(final int limit, final int offset, final NetworkUtils.ResponseHandler completionHandler) {
+    public static void requestData(final int offset, final NetworkUtils.ResponseHandler completionHandler) {
         new NetworkUtils.AsyncWrapper(completionHandler) {
             @Override
             public NetworkUtils.Response doInBackground(Void... params) {
-                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("GETDATA", limit, offset));
+                List<String> response = NetworkUtils.sendMessages(NetworkUtils.compileMsg("GETDATA", 100, offset));
 
                 try {
                     if (response != null) {

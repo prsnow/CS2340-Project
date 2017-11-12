@@ -19,10 +19,10 @@ public class AidanUnitTest {
     public void compileMsg_null() throws Exception {
         assertEquals(compileMsg(null), null);
     }
-
     /**
      * Make sure calling compileMsg() with only one string doesn't place the splitter before or
      * after the string.
+
      * @throws Exception - exception encountered during testing
      */
     @Test

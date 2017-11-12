@@ -42,7 +42,7 @@ public class RatDataListActivity extends AppCompatActivity {
         EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(layout) {
             @Override
             public void onLoadMore(int page, final int totalItemsCount, RecyclerView view) {
-                DataHandler.requestData(100, totalItemsCount, new NetworkUtils.ResponseHandler() {
+                DataHandler.requestData(totalItemsCount, new NetworkUtils.ResponseHandler() {
                     @Override
                     public void handle(NetworkUtils.Response response) {
                         if (response.getAccept()) {
@@ -69,7 +69,7 @@ public class RatDataListActivity extends AppCompatActivity {
         recyclerView.addOnScrollListener(scrollListener);
 
         //Fetch first round of data
-        DataHandler.requestData(100, 0, new NetworkUtils.ResponseHandler() {
+        DataHandler.requestData(0, new NetworkUtils.ResponseHandler() {
             @Override
             public void handle(NetworkUtils.Response response) {
                 if (response.getAccept()) {

@@ -24,7 +24,7 @@ abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollLi
 
     private final RecyclerView.LayoutManager mLayoutManager;
 
-    protected EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+    EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
