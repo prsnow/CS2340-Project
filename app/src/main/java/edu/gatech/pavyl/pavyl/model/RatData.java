@@ -52,22 +52,7 @@ public class RatData {
     }
 
     private static final SimpleDateFormat FMT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a");
-
-    /**
-     * Parses the date in this RatData's data and returns it as a Calendar object.
-     * @return this RatData's date value in Calendar form
-     */
-    public Calendar getDate() {
-        try {
-            Calendar ret = Calendar.getInstance();
-            ret.setTime(FMT.parse(getData("date")));
-            return ret;
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+    
     /**
      * Returns a String representation of this RatData object for transfer to server, excluding
      * the data_key field.
