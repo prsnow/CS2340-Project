@@ -52,7 +52,7 @@ public class RatData {
     }
 
     private static final SimpleDateFormat FMT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a");
-    
+
     /**
      * Returns a String representation of this RatData object for transfer to server, excluding
      * the data_key field.
