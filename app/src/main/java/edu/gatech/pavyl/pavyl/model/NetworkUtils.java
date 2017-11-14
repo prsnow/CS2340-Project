@@ -9,7 +9,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NetworkUtils {
+public final class NetworkUtils {
+    /**
+     * Private constructor- this is a utility class and should not be instantiated.
+     */
+    private NetworkUtils() {}
+
     /**
      * Sends a collection of messages to the server utilizing a quick socket connection.
      *

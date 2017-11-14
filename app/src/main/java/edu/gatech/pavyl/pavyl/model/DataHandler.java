@@ -8,7 +8,12 @@ import java.util.List;
  * The DataHandler class provides tools to access the database of rat sightings. Everything is
  * processed through the server intermediary for convenience and safety.
  */
-public class DataHandler {
+public final class DataHandler {
+    /**
+     * Private constructor- this is a utility class and should not be instantiated.
+     */
+    private DataHandler() {}
+
     /**
      * Request a certain amount of rat data from the server. The limit and offset will be passed
      * into the database query.

@@ -36,8 +36,13 @@ import java.util.List;
  *     (5) A message is returned to the client with a success or failure message, depending on the
  *         result of the previous equality check.
  */
-public class AuthHandler
+public final class AuthHandler
 {
+    /**
+     * Private constructor- this is a utility class and should not be instantiated.
+     */
+    private AuthHandler() {}
+
     /**
      * Asynchronously runs the login protocol, running the completion handler in the UI thread when
      * the operation is complete.
