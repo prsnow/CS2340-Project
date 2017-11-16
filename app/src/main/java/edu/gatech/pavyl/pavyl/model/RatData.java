@@ -1,7 +1,5 @@
 package edu.gatech.pavyl.pavyl.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -51,7 +49,7 @@ public class RatData {
         return getData(SharedData.DATA_KEY_ID) + SharedData.DATA_SPLIT + compileNoKey();
     }
 
-    private static final SimpleDateFormat FMT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a");
+    //private static final SimpleDateFormat FMT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a");
 
     /**
      * Returns a String representation of this RatData object for transfer to server, excluding
@@ -76,12 +74,12 @@ public class RatData {
     /**
      * Parses a string containing data for a single rat sighting.
      *
-     * @param s - string to parse
+     * @param s1 - string to parse
      * @return parsed RatData object, null if there's an error during parsing
      */
-    public static RatData parse(String s) {
+    public static RatData parse(String s1) {
         //trim parenthesis
-        s = s.substring(1, s.length() - 1);
+        String s = s1.substring(1, s1.length() - 1);
         String[] split = s.split(SharedData.DATA_SPLIT, -1);
 
         //ensure we have all the data

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.Series;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,7 +50,7 @@ public class GraphActivity extends AppCompatActivity {
                     }
 
                     GraphView graph = findViewById(R.id.graph);
-                    LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints.toArray(new DataPoint[0]));
+                    Series<DataPoint> series = new LineGraphSeries<>(dataPoints.toArray(new DataPoint[0]));
                     graph.addSeries(series);
                 }
             }

@@ -35,6 +35,7 @@ public class SessionData
 	 * Returns the username stored in this session cache.
 	 * @return username in the session cache
 	 */
+	@Nullable
 	public static String getUsername() {
 		return username;
 	}
@@ -43,7 +44,7 @@ public class SessionData
 	 * Sets the username stored in this session cache.
 	 * @param user - username to set
 	 */
-	public static void setUsername(String user) {
+	public static void setUsername(@Nullable String user) {
 		username = user;
 	}
 

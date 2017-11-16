@@ -41,7 +41,7 @@ public class RatDataListActivity extends AppCompatActivity {
         //Set up scroll listener to retrieve new data when necessary
         EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(layout) {
             @Override
-            public void onLoadMore(int page, final int totalItemsCount, RecyclerView view) {
+            public void onLoadMore(final int totalItemsCount) {
                 DataHandler.requestData(totalItemsCount, new NetworkUtils.ResponseHandler() {
                     @Override
                     public void handle(NetworkUtils.Response response) {

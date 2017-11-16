@@ -17,7 +17,7 @@ abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollLi
     private static final int VISIBLE_THRESHOLD = 5;
     // The current offset index of data you have loaded
     private int currentPage = 0;
-    // The total number of items in the dataset after the last load
+    // The total number of items in the data set after the last load
     private int previousTotalItemCount = 0;
     // True if we are still waiting for the last set of data to load.
     private boolean loading = true;
@@ -59,7 +59,7 @@ abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollLi
             lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
         }
 
-        // If it’s still loading, we check to see if the dataset count has
+        // If it’s still loading, we check to see if the data set count has
         // changed, if so we conclude it has finished loading and update the current page
         // number and total item count.
         if (loading && (totalItemCount > previousTotalItemCount)) {
@@ -73,11 +73,11 @@ abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollLi
         // threshold should reflect how many total columns there are too
         if (!loading && ((lastVisibleItemPosition + VISIBLE_THRESHOLD) > totalItemCount)) {
             currentPage++;
-            onLoadMore(currentPage, totalItemCount, view);
+            onLoadMore(totalItemCount);
             loading = true;
         }
     }
 
     // Defines the process for actually loading more data based on page
-    public abstract void onLoadMore(int page, int totalItemsCount, RecyclerView view);
+    public abstract void onLoadMore(int totalItemsCount);
 }

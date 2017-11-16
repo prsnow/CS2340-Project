@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class yhoshi3UnitTest {
 
 
-    private String[] data_fields = {"data_key", "date", "location", "zip", "address", "city", "borough", "latitude", "longitude"};
+    private final String[] data_fields = {"data_key", "date", "location", "zip", "address", "city", "borough", "latitude", "longitude"};
 
 
     /**
@@ -40,8 +40,7 @@ public class yhoshi3UnitTest {
         RatData correct = new RatData(dataMap);
 
 
-        for (int i = 0; i < data_fields.length; i++) {
-            String field = data_fields[i];
+        for (String field : data_fields) {
             assertEquals(correct.getData(field), toTest.getData(field));
         }
     }
@@ -95,8 +94,7 @@ public class yhoshi3UnitTest {
         }
         correct = new RatData(map);
 
-        for (int i = 0; i < data_fields.length; i++) {
-            String field = data_fields[i];
+        for (String field : data_fields) {
             assertEquals(correct.getData(field), toTest.getData(field));
         }
     }

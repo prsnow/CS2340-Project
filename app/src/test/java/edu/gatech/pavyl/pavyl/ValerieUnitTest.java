@@ -1,5 +1,6 @@
 package edu.gatech.pavyl.pavyl;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -29,7 +30,7 @@ public class ValerieUnitTest {
      */
     @Test
     public void sendMessage_trimEnds() throws Exception {
-        ArrayList<String> array = new ArrayList<>();
+        List<String> array = new ArrayList<>();
         array.add("hello i am you");
         assertEquals(NetworkUtils.sendMessages("    hello i am you   "), array);
 
@@ -41,7 +42,7 @@ public class ValerieUnitTest {
      */
     @Test
     public void sendMessage_trimWords() throws Exception {
-        ArrayList<String> array = new ArrayList<>();
+        List<String> array = new ArrayList<>();
         array.add("blah    blahblah    blah");
         assertEquals(NetworkUtils.sendMessages("blah", "    blah",
                 "blah    ", "blah"), array);

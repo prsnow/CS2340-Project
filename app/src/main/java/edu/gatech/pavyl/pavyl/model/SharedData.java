@@ -12,8 +12,7 @@ public class SharedData
 	//CSV splitters
 	public static final String SPLITTER = "%1%";
 	public static final String DATA_SPLIT = ",";
-	
-	private static final Set<Character> ALLOWED_CHARS = new HashSet<>();
+
 	public static final int MAX_USERNAME_LENGTH = 32;
 
 	/**
@@ -26,10 +25,4 @@ public class SharedData
 	 * The database name for the data key.
 	 */
 	public static final String DATA_KEY_ID = "data_key";
-	
-	static {
-		ALLOWED_CHARS.add('-');
-		ALLOWED_CHARS.add('_');
-		ALLOWED_CHARS.add('.');
-	}
 }
